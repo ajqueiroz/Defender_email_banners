@@ -1,0 +1,31 @@
+Red rule: possible impersonation
+Go to Exchange admin centre > Mail flow > Rules > Add a rule > Create a new rule.
+Name it "Banner - Red - Impersonation".
+Under "Apply this rule if", choose The sender > is external/internal > Outside the organization.
+Click + to add a second condition: The message headers > includes any of these words. Enter From as the header name, then add the display names of your senior and finance staff, one per entry.
+Under "Do the following", choose Apply a disclaimer to the message > prepend a disclaimer.
+Click "Enter text" and paste:
+html
+<div style="background:#FDE7E9;border-left:6px solid #C00000;padding:10px 12px;margin-bottom:12px;font-family:Segoe UI,Arial,sans-serif;font-size:13px;color:#323130"><b style="color:#C00000">Possible impersonation.</b> The sender uses the name of a senior colleague but this email came from outside the organisation. Verify by phone before acting, and report it if unsure.</div>
+Click "Select one" and set the fallback action to Wrap.
+Under "Except if", choose The subject or body > includes any of these words, and enter Possible impersonation. so the banner isn't added again on replies.
+Click Next, tick "Stop processing more rules", and save.
+Yellow rule: risky attachment
+
+Repeat steps 1 to 9 with these changes:
+
+Name: "Banner - Yellow - Attachment".
+Second condition (step 4): Any attachment > file extension includes these words, then add html, htm, iso, img, one, svg and any others you want.
+Exception text (step 8): Caution: unusual attachment.
+HTML (step 6):
+html
+<div style="background:#FFF4CE;border-left:6px solid #E0A800;padding:10px 12px;margin-bottom:12px;font-family:Segoe UI,Arial,sans-serif;font-size:13px;color:#323130"><b style="color:#8A6100">Caution: unusual attachment.</b> This external email contains a file type often used in phishing. Do not open it unless you were expecting it.</div>
+
+For a yellow banner on payment or password wording, create a third rule the same way with The subject or body > includes any of these words as the second condition, and change the banner text to suit.
+
+Finishing off
+Order: in the rules list, move the red rule to the top (priority 0) and yellow below it, with any generic external rule last.
+Enable: new rules are created switched off, so turn each one on from the rules list.
+Test: send from an outside mailbox with a display name on your list, and another with an .html attachment. Changes can take a little while to apply.
+
+Two limits to expect: a later reply in an already-bannered thread arrives without a fresh banner at the top because of the step 8 exception, and Outlook's dark mode may shift the colours slightly.
