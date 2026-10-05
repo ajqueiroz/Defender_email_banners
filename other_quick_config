@@ -1,0 +1,22 @@
+One-line or one-tick changes
+
+External recipients MailTip: this warns users while composing that a recipient is outside the organisation, which catches misaddressed mail and replies to lookalike domains. Microsoft's documentation says it's off by default, and you enable it with Set-OrganizationConfig -MailTipsExternalRecipientsTipsEnabled $true. It's also the only MailTip Outlook mobile supports.
+First contact safety tip: a single tick box in the anti-phishing policy, with no dependency on spoof or impersonation settings. Check it's actually on.
+Protected users list: the impersonation safety tips only fire for people you've listed in the policy. A common miss is enabling impersonation protection but leaving the list empty; each policy takes up to 350 users, so add executives, finance and HR.
+
+Report button, done properly
+
+Confirmation and success pop-ups: in User reported settings you can ask users to confirm before reporting, show a message afterwards, and customise the wording of both. A "thanks, the security team has this" message encourages repeat reporting.
+Destination: set reported messages to go to both Microsoft and your own reporting mailbox, so you see what users are flagging.
+Feedback to the reporter: when triaging a report, the "Mark as and notify" option emails the user the verdict.
+
+Quarantine and warning pages
+
+Quarantine notifications: these aren't enabled by default, so users often never learn a message was held. Turn them on in the quarantine policy.
+Your logo on notifications: the global quarantine settings let you replace the Microsoft logo with your own and set the sender address. Users then learn what a real notification looks like, which helps against fake "quarantine release" phishing.
+Safe Links warning pages: the Safe Links policy has options to show your organisation's branding on warning pages and to stop users clicking through to the original URL. I didn't re-verify these two today, so confirm the wording in your tenant.
+
+Keeping your banners meaningful
+
+Exclude legitimate system senders: quarantine notifications and similar automated mail can trip an external banner rule. Add exceptions for them, plus any SaaS tools that email your staff daily, so the banner stays a real signal.
+Tell users what the colours mean: a short one-off note explaining red, yellow and the Report button does more than the banners alone.
